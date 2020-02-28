@@ -6,49 +6,55 @@ public class Section : MonoBehaviour
 {
     // VARIABLES
 
-    [SerializeField] private Color[] myColors = null;
+    [SerializeField] private GameObject[] sets = null;
     private int currentSelectionInt;
-    
-    private Renderer myRenderer;
+    private GameObject currentlyActiveSet = null;
 
     public bool debug;
 
     private bool unseen = true;
-    private bool isVisible { get { return myRenderer.IsVisibleFrom(Camera.main); } }
+    private bool isVisible {
+        get {
+            foreach (Transform c in currentlyActiveSet.transform) {
+                if (c.GetComponent<VisibilityCheck>().isVisible) return true;
+            }
+
+            return false;
+        }
+    }
 
     // EXECUTION FUNCTIONS
 
     private void Start() {
-        myRenderer = GetComponent<Renderer>();
         FindObjectOfType<Blink>().blinkEvent += OnBlink;
 
         currentSelectionInt = 0;
-        myRenderer.material.color = myColors[0];
+        sets[0].SetActive(true);
+        currentlyActiveSet = sets[0];
     }
 
     private void Update() {
         if (isVisible) unseen = false;
         if (!isVisible && !unseen) {
-            ChangeColor();
+            ChangeSet();
             unseen = true;
             
         }
-    }
-
-    private void OnBecameInvisible() {
-        ChangeColor();
     }
 
     // METHODS
 
     private void OnBlink() {
         if (!isVisible) return;
-        ChangeColor();
+        ChangeSet();
     }
 
-    private void ChangeColor() {
+    private void ChangeSet() {
         currentSelectionInt++;
-        if (currentSelectionInt >= myColors.Length) currentSelectionInt = 0;
-        myRenderer.material.color = myColors[currentSelectionInt];
+        if (currentSelectionInt >= sets.Length) currentSelectionInt = 0;
+        
+        for (int i = 0; i < sets.Length; i++) {
+            sets[i].SetActive(i == currentSelectionInt);
+        }
     }
 }
