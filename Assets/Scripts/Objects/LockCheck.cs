@@ -6,16 +6,18 @@ public class LockCheck : MonoBehaviour
 {
     public int sectionId;
     private Section mySection;
-    private SubSet mySet;
+    public SubSet mySet;
     public bool isLocked { get; private set; }
+    public SubSet correctSet { get; private set; }
 
     private Renderer myRenderer;
 
-    public void Initialize() { 
+    public void Initialize(SubSet set) { 
         isLocked = false;
         mySection = GetComponentInParent<Section>();
         mySet = GetComponentInParent<SubSet>();
         myRenderer = GetComponent<Renderer>();
+        correctSet = set;
     }
 
     public void TriggerLock() {
@@ -30,7 +32,7 @@ public class LockCheck : MonoBehaviour
 
     public void Switch(LockCheck other) {
         mySet.ownsLockedObject = false;
-        
+
         var tempParent = other.transform.parent;
         var tempSet = other.mySet;
 

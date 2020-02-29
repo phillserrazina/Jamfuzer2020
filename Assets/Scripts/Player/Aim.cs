@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Aim : MonoBehaviour
 {
-    [SerializeField] private Text actionTextObject;
+    [SerializeField] private Text actionTextObject = null;
     private Transform selected;
 
     private void Update() {
