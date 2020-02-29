@@ -22,9 +22,15 @@ public class Aim : MonoBehaviour
             if (lc == null) return;
             actionTextObject.text = lc.isLocked ? "Unlock" : "Lock";
 
-            selection.GetComponent<Renderer>().material.color = Color.yellow;
+            selection.GetComponent<Renderer>().material.color = lc.isLocked ? Color.red : Color.yellow;
             actionTextObject.gameObject.SetActive(true);
             selected = selection;
+        }
+
+        if (selected != null) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                selected.GetComponent<LockCheck>().TriggerLock();
+            }
         }
     }
 }

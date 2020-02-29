@@ -62,6 +62,8 @@ public class Section : MonoBehaviour
     }
 
     public void LockObject(int id, LockCheck obj) {
+        if (currentlyLockedObject != null) currentlyLockedObject.TriggerLock();
+
         lockedObject = id;
         currentlyLockedObject = obj;
     }

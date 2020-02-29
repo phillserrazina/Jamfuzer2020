@@ -18,30 +18,30 @@ public class LockCheck : MonoBehaviour
         myRenderer = GetComponent<Renderer>();
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (sectionId == 1) TriggerLock();
-        }
-    }
-
-    private void TriggerLock() {
-        mySection.LockObject(sectionId, this);
+    public void TriggerLock() {
         isLocked = !isLocked;
+
+        if (isLocked) mySection.LockObject(sectionId, this);
+        else mySection.UnlockObject();
+
         mySet.ownsLockedObject = isLocked;
-        if (!isLocked) mySection.UnlockObject();
         myRenderer.material.color = isLocked ? Color.red : Color.white;
     }
 
     public void Switch(LockCheck other) {
+        mySet.ownsLockedObject = false;
+        
         var tempParent = other.transform.parent;
         var tempSet = other.mySet;
 
         other.transform.parent = transform.parent;
         other.mySet = mySet;
+        other.mySet.myObjects[sectionId] = other.GetComponent<VisibilityCheck>();
         other.mySet.myLockObjects[sectionId] = other;
 
         transform.parent = tempParent;
         mySet = tempSet;
         mySet.myLockObjects[sectionId] = this;
+        mySet.myObjects[sectionId] = GetComponent<VisibilityCheck>();
     }
 }
