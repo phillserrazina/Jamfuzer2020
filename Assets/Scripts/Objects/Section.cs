@@ -100,6 +100,8 @@ public class Section : MonoBehaviour
 
             sets[set1].myLockObjects[index].Switch(sets[set2].myLockObjects[index]);
         }
+
+        if (done) Scramble();
     }
 
     public void Reset() {
