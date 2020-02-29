@@ -11,6 +11,7 @@ public class CameraEffects : MonoBehaviour
 
     private void Start() {
         myBlink = FindObjectOfType<Blink>();
+        blinkAnim.SetTrigger("OpenEye");
     }
 
     private void Update() {
