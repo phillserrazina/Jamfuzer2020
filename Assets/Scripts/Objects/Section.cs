@@ -68,7 +68,7 @@ public class Section : MonoBehaviour
 
     public void UnlockObject() {
         lockedObject = -1;
-        currentlyLockedObject.Switch(currentlyActiveSet.MyLockObjects.Where(x => x.sectionId == currentlyLockedObject.sectionId).ToArray()[0]);
+        currentlyLockedObject.Switch(currentlyActiveSet.myLockObjects.Where(x => x.sectionId == currentlyLockedObject.sectionId).ToArray()[0]);
         currentlyLockedObject = null;
     }
 }
