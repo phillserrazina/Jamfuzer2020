@@ -7,6 +7,18 @@ public class CameraEffects : MonoBehaviour
 {
     [SerializeField] private Animator blinkAnim = null;
 
+    private Blink myBlink;
+
+    private void Start() {
+        myBlink = FindObjectOfType<Blink>();
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            Blink();
+        }
+    }
+
     [Button]
     public void Blink()
     {
@@ -14,5 +26,9 @@ public class CameraEffects : MonoBehaviour
         {
             blinkAnim.SetTrigger("Blink");    
         }
+    }
+
+    public void BlinkMechanic() {
+        myBlink.PlayerBlink();
     }
 }
