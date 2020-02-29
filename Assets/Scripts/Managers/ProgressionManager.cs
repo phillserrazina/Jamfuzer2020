@@ -6,13 +6,19 @@ public class ProgressionManager : MonoBehaviour
     public MemoryReference[] memoryReferences;
 
     private Section[] sections;
+    private bool openedHatch = false;
 
     private void Start() {
         sections = FindObjectsOfType<Section>();
+        SetCorrectSet(MemRefTracker.currentMemRef);
     }
 
     private void Update() {
-        if (LevelIsDone()) Debug.Log("OPEN HATCH");
+        if (LevelIsDone() && !openedHatch) {
+            openedHatch = true;
+            FindObjectOfType<Hatch>().Unlock();
+        }
+
         if (Input.GetKeyDown(KeyCode.Z)) {
             NextMemory();
         }
