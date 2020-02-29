@@ -40,15 +40,13 @@ public class Section : MonoBehaviour
 
         Scramble();
 
-        currentSelectionInt = 0;
-        currentlyActiveSet = sets[0];
+        currentSelectionInt = 2;
+        currentlyActiveSet = sets[2];
 
         currentlyActiveSet.Load();
     }
 
     private void Update() {
-        if (done) return;
-
         if (isVisible) unseen = false;
         if (!isVisible && !unseen) {
             ChangeSet();
@@ -59,7 +57,7 @@ public class Section : MonoBehaviour
     // METHODS
 
     private void OnBlink() {
-        if (!isVisible || done) return;
+        if (!isVisible) return;
         ChangeSet();
     }
 
@@ -96,12 +94,21 @@ public class Section : MonoBehaviour
             int set1 = Random.Range(0, sets.Length);
             int set2 = Random.Range(0, sets.Length);
 
-            int index = Random.Range(1, 3);
+            while (set2 == set1) set2 = Random.Range(0, sets.Length);
+
+            int index = Random.Range(0, 4);
 
             sets[set1].myLockObjects[index].Switch(sets[set2].myLockObjects[index]);
         }
 
-        if (done) Scramble();
+        foreach(var s in sets) {
+            s.Load();
+            if (s.CheckIfAllItemsAreCorrect()) {
+                Debug.Log("Section::Scramble() --- Found Insta-Done Section: Rescrambling");
+                Scramble();
+            }
+            s.Unload();
+        }
     }
 
     public void Reset() {
