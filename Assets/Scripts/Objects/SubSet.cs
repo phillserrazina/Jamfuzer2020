@@ -5,9 +5,7 @@ using UnityEngine;
 public class SubSet : MonoBehaviour
 {
     public VisibilityCheck[] myObjects = null;
-    private LockCheck[] myLockObjects = null;
-
-    public LockCheck[] MyLockObjects { get { return myLockObjects; } }
+    [HideInInspector] public LockCheck[] myLockObjects = null;
 
     public bool ownsLockedObject;
 
@@ -15,6 +13,7 @@ public class SubSet : MonoBehaviour
         myLockObjects = new LockCheck[myObjects.Length];
         for (int i = 0; i < myObjects.Length; i++) {
             myLockObjects[i] = myObjects[i].GetComponent<LockCheck>();
+            myLockObjects[i].Initialize();
         }
     }
 

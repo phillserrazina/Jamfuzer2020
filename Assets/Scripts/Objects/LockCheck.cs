@@ -9,10 +9,13 @@ public class LockCheck : MonoBehaviour
     private SubSet mySet;
     public bool isLocked { get; private set; }
 
-    private void Start() { 
+    private Renderer myRenderer;
+
+    public void Initialize() { 
         isLocked = false;
         mySection = GetComponentInParent<Section>();
         mySet = GetComponentInParent<SubSet>();
+        myRenderer = GetComponent<Renderer>();
     }
 
     private void Update() {
@@ -26,17 +29,19 @@ public class LockCheck : MonoBehaviour
         isLocked = !isLocked;
         mySet.ownsLockedObject = isLocked;
         if (!isLocked) mySection.UnlockObject();
+        myRenderer.material.color = isLocked ? Color.red : Color.white;
     }
 
     public void Switch(LockCheck other) {
-        Debug.Log("Switching " + gameObject.name + " with " + other.gameObject.name);
         var tempParent = other.transform.parent;
         var tempSet = other.mySet;
 
         other.transform.parent = transform.parent;
         other.mySet = mySet;
+        other.mySet.myLockObjects[sectionId] = other;
 
         transform.parent = tempParent;
         mySet = tempSet;
+        mySet.myLockObjects[sectionId] = this;
     }
 }
