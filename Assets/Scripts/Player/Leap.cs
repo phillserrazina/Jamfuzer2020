@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Leap : MonoBehaviour
 {
-    [SerializeField] Transform _LeapTo;
+    [SerializeField] Transform _LeapTo = null;
     [SerializeField] float _enableMovementDelayTime = 1.2f;
-    CameraEffects _camEf;
-    Transform _player;
-    PlayerMovement _playerMovement;
+
+    CameraEffects _camEf = null;
+    Transform _player = null;
+    PlayerMovement _playerMovement = null;
+    Hatch _hatch = null;
 
     private void OnValidate()
     {
@@ -18,6 +20,8 @@ public class Leap : MonoBehaviour
             _player = GameObject.FindGameObjectWithTag("Player").transform;
         if (_playerMovement == null)
             _playerMovement = _player.GetComponent<PlayerMovement>();
+        if (_hatch == null)
+            _hatch = FindObjectOfType<Hatch>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +29,10 @@ public class Leap : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _camEf.Blink();
+
+            if (_hatch != null)
+                _hatch.Lock();
+
             //Invoke("LeapMe", 0.25f);
             StartCoroutine(LeapMe());
         }
