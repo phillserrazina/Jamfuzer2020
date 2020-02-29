@@ -1,28 +1,28 @@
 ﻿using UnityEngine;
-using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class ProgressionManager : MonoBehaviour
 {
     public MemoryReference[] memoryReferences;
 
     private Section[] sections;
-    private int currentMemoryReference = 0;
 
     private void Start() {
         sections = FindObjectsOfType<Section>();
-        SetCorrectSet(currentMemoryReference);
+        SetCorrectSet(MemRefTracker.currentMemRef);
     }
 
     private void Update() {
+        if (LevelIsDone()) Debug.Log("OPEN HATCH");
         if (Input.GetKeyDown(KeyCode.Z)) {
             NextMemory();
         }
     }
 
+    // USE THIS TO GO TO THE NEXT LEVEL
     public void NextMemory() {
-        Debug.Log("NEXT");
-        currentMemoryReference++;
-        SetCorrectSet(currentMemoryReference);
+        MemRefTracker.currentMemRef++;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SetCorrectSet(int index) {
@@ -36,5 +36,13 @@ public class ProgressionManager : MonoBehaviour
             }
             
         }
+    }
+
+    private bool LevelIsDone() {
+        foreach (var s in sections) {
+            if (!s.done) return false;
+        }
+
+        return true;
     }
 }
