@@ -6,10 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     // VARIABLES
 
-    [SerializeField]
-    private float mouseSensitivity = 1f;
-    [SerializeField]
-    private float movementSpeed = 5f;
+    [SerializeField] private float mouseSensitivityY = 1f;
+    [SerializeField] private float mouseSensitivityX = 4f;
+    [SerializeField] private float movementSpeed = 5f;
 
     private float horDirection;
     private float verDirection;
@@ -40,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private void GetInput() {
         horDirection = Input.GetAxis("Horizontal");
         verDirection = Input.GetAxis("Vertical");
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX;
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY;
 
         xRotation += mouseY;
         xRotation = Mathf.Clamp(xRotation, -50f, 50f);
