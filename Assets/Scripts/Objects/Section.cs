@@ -6,22 +6,24 @@ public class Section : MonoBehaviour
 {
     // VARIABLES
 
-    [SerializeField] private GameObject[] sets = null;
+    [SerializeField] private SubSet[] sets = null;
     private int currentSelectionInt;
-    private GameObject currentlyActiveSet = null;
+    private SubSet currentlyActiveSet = null;
 
     public bool debug;
 
     private bool unseen = true;
     private bool isVisible {
         get {
-            foreach (Transform c in currentlyActiveSet.transform) {
-                if (c.GetComponent<VisibilityCheck>().isVisible) return true;
+            foreach (VisibilityCheck c in currentlyActiveSet.myObjects) {
+                if (c.isVisible) return true;
             }
 
             return false;
         }
     }
+
+    private int lockedObject = -1;
 
     // EXECUTION FUNCTIONS
 
@@ -29,7 +31,6 @@ public class Section : MonoBehaviour
         FindObjectOfType<Blink>().blinkEvent += OnBlink;
 
         currentSelectionInt = 0;
-        sets[0].SetActive(true);
         currentlyActiveSet = sets[0];
     }
 
@@ -54,7 +55,16 @@ public class Section : MonoBehaviour
         if (currentSelectionInt >= sets.Length) currentSelectionInt = 0;
         
         for (int i = 0; i < sets.Length; i++) {
-            sets[i].SetActive(i == currentSelectionInt);
+            if (i == currentSelectionInt) sets[i].Load(lockedObject);
+            else sets[i].Unload();
         }
+    }
+
+    public void LockObject(int id) {
+        lockedObject = id;
+    }
+
+    public void UnlockObject() {
+        lockedObject = -1;
     }
 }
