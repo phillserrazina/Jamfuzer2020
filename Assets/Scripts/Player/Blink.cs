@@ -6,14 +6,8 @@ public class Blink : MonoBehaviour
 {
     public delegate void BlinkDelegate();
     public BlinkDelegate blinkEvent;
-    
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            PlayerBlink();
-        }
-    }
 
-    private void PlayerBlink() {
+    public void PlayerBlink() {
         if (blinkEvent != null) blinkEvent();
     }
 }

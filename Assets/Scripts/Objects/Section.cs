@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Linq;
 
 public class Section : MonoBehaviour
 {
@@ -24,6 +23,7 @@ public class Section : MonoBehaviour
     }
 
     private int lockedObject = -1;
+    public LockCheck currentlyLockedObject = null;
 
     // EXECUTION FUNCTIONS
 
@@ -53,6 +53,7 @@ public class Section : MonoBehaviour
     private void ChangeSet() {
         currentSelectionInt++;
         if (currentSelectionInt >= sets.Length) currentSelectionInt = 0;
+        currentlyActiveSet = sets[currentSelectionInt];
         
         for (int i = 0; i < sets.Length; i++) {
             if (i == currentSelectionInt) sets[i].Load(lockedObject);
@@ -60,11 +61,14 @@ public class Section : MonoBehaviour
         }
     }
 
-    public void LockObject(int id) {
+    public void LockObject(int id, LockCheck obj) {
         lockedObject = id;
+        currentlyLockedObject = obj;
     }
 
     public void UnlockObject() {
         lockedObject = -1;
+        currentlyLockedObject.Switch(currentlyActiveSet.MyLockObjects.Where(x => x.sectionId == currentlyLockedObject.sectionId).ToArray()[0]);
+        currentlyLockedObject = null;
     }
 }
