@@ -9,7 +9,6 @@ public class ProgressionManager : MonoBehaviour
 
     private void Start() {
         sections = FindObjectsOfType<Section>();
-        SetCorrectSet(MemRefTracker.currentMemRef);
     }
 
     private void Update() {
@@ -22,7 +21,12 @@ public class ProgressionManager : MonoBehaviour
     // USE THIS TO GO TO THE NEXT LEVEL
     public void NextMemory() {
         MemRefTracker.currentMemRef++;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        foreach (var s in sections) {
+            s.Reset();
+        }
+
+        SetCorrectSet(MemRefTracker.currentMemRef);
     }
 
     public void SetCorrectSet(int index) {
