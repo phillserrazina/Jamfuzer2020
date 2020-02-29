@@ -51,4 +51,11 @@ public class SubSet : MonoBehaviour
         if (correct.correctSet) return true;
         else return false;
     }
+
+    public void Reset() {
+        ownsLockedObject = false;
+        foreach (var lc in myLockObjects) {
+            lc.Reset();
+        }
+    }
 }
