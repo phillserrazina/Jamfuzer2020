@@ -5,6 +5,7 @@ public class Section : MonoBehaviour
 {
     // VARIABLES
 
+    [SerializeField] private Section[] otherSections = null;
     [SerializeField] private SubSet[] sets = null;
     private int currentSelectionInt;
     private SubSet currentlyActiveSet = null;
@@ -28,6 +29,7 @@ public class Section : MonoBehaviour
     // EXECUTION FUNCTIONS
 
     private void Start() {
+        otherSections = FindObjectsOfType<Section>().Where(s => s != this).ToArray();
         FindObjectOfType<Blink>().blinkEvent += OnBlink;
 
         currentSelectionInt = 0;
@@ -63,6 +65,10 @@ public class Section : MonoBehaviour
 
     public void LockObject(int id, LockCheck obj) {
         if (currentlyLockedObject != null) currentlyLockedObject.TriggerLock();
+
+        foreach (var s in otherSections) {
+            if (s.currentlyLockedObject != null) s.currentlyLockedObject.TriggerLock();
+        }
 
         lockedObject = id;
         currentlyLockedObject = obj;
