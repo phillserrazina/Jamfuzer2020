@@ -46,4 +46,10 @@ public class LockCheck : MonoBehaviour
         mySet.myLockObjects[sectionId] = this;
         mySet.myObjects[sectionId] = GetComponent<VisibilityCheck>();
     }
+
+    public void Reset() {
+        isLocked = false;
+        myRenderer.material.color = Color.white;
+        gameObject.SetActive(false);
+    }
 }

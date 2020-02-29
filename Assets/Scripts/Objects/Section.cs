@@ -106,6 +106,12 @@ public class Section : MonoBehaviour
         done = false;
         Scramble();
 
+        currentlyActiveSet.Unload();
+
+        foreach (var s in sets) {
+            s.Reset();
+        }
+
         currentSelectionInt = 0;
         currentlyActiveSet = sets[0];
 
