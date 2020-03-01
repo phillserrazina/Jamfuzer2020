@@ -30,6 +30,7 @@ public class LockCheck : MonoBehaviour
         else mySection.UnlockObject();
 
         mySet.ownsLockedObject = isLocked;
+        myRenderer.material.SetFloat("_Outline", 0f);
         myRenderer.material.SetColor("_OutlineColor", isLocked ? myOrange : myPurple);
     }
 

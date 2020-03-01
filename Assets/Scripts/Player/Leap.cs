@@ -44,6 +44,7 @@ public class Leap : MonoBehaviour
         _playerMovement.enabled = false;
         _player.position = _LeapTo.position;
         FindObjectOfType<ProgressionManager>().NextMemory();
+        FindObjectOfType<SubtitlesManager>().LockDescriptions();
 
         yield return new WaitForSeconds(_enableMovementDelayTime);
         _playerMovement.enabled = true;
