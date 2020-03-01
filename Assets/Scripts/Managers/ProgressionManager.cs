@@ -23,10 +23,6 @@ public class ProgressionManager : MonoBehaviour
             locked = true;
             FindObjectOfType<SubtitlesManager>().UnlockDescriptions();
         }
-
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            NextMemory();
-        }
     }
 
     private void UnlockHatch() {
