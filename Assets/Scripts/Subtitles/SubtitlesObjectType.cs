@@ -28,7 +28,18 @@ public enum ObjectType
     Potted_Plant,
     Bookshelf,
     Small_Table_with_radio,
-    Adult_Wardrobe
+    Adult_Wardrobe,
+    Checkers_Boardgame,
+    Beside_Table,
+    Kids_Door,
+    Teen_Door,
+    Adult_Door,
+    Kids_Window,
+    Teen_Window,
+    Adult_Window,
+    Kids_Crayon_Drawings,
+    Adult_Chest_Of_Drawers,
+    Framed_Picture
 }
 
 public class SubtitlesObjectType : MonoBehaviour
