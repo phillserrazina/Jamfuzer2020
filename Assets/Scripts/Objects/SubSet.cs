@@ -12,6 +12,11 @@ public class SubSet : MonoBehaviour
 
     public Section mySection { get; private set; }
 
+    private void OnValidate()
+    {
+        myObjects = GetComponentsInChildren<VisibilityCheck>(true);
+    }
+
     private void Update() {
         if (CheckIfAllItemsAreCorrect()) {
             mySection.done = true;
