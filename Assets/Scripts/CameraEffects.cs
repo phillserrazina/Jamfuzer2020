@@ -15,7 +15,7 @@ public class CameraEffects : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetButtonDown("Blink")) {
             Blink();
         }
     }

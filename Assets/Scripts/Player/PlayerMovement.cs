@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private void GetInput() {
         horDirection = Input.GetAxis("Horizontal");
         verDirection = Input.GetAxis("Vertical");
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX;
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY;
+        mouseX = (Input.GetAxis("Mouse X") + Input.GetAxis("Controller Look Around X")) * mouseSensitivityX;
+        mouseY = (Input.GetAxis("Mouse Y") + Input.GetAxis("Controller Look Around Y")) * mouseSensitivityY;
 
         xRotation += mouseY;
         xRotation = Mathf.Clamp(xRotation, -50f, 50f);

@@ -18,7 +18,6 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update() {
         if (LevelIsDone() && !openedHatch) {
-            Debug.Log("OPEN HATCH");
             openedHatch = true;
             FindObjectOfType<Hatch>().Unlock();
             locked = true;
@@ -58,7 +57,6 @@ public class ProgressionManager : MonoBehaviour
     private bool LevelIsDone() {
         foreach (var s in sections) {
             if (!s.done) {
-                Debug.Log("Missing " + s.gameObject.name);
                 return false;
             }
         }

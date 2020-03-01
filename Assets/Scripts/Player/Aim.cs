@@ -13,7 +13,14 @@ public class Aim : MonoBehaviour
     }
 
     private void Update() {
-        if (progressionManager.locked) return;
+        if (progressionManager.locked) {
+            actionTextObject.gameObject.SetActive(false);
+            if (selected != null) {
+                selected.GetComponent<Renderer>().material.SetFloat("_Outline", 0f);
+                selected = null;
+            }
+            return;
+        }
         
         if (selected != null) {
             selected.GetComponent<Renderer>().material.SetFloat("_Outline", selected.GetComponent<LockCheck>().isLocked ? 1.1f : 0f);
@@ -37,7 +44,7 @@ public class Aim : MonoBehaviour
         }
 
         if (selected != null) {
-            if (Input.GetKeyDown(KeyCode.E)) {
+            if (Input.GetButtonDown("Action")) {
                 selected.GetComponent<LockCheck>().TriggerLock();
             }
         }
