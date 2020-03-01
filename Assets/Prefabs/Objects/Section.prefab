@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 216054266737702091}
   - {fileID: 7988938343277282271}
   - {fileID: 7988938344507925635}
+  done: 0
   debug: 0
   currentlyLockedObject: {fileID: 0}
 --- !u!1001 &216054265105610387
@@ -399,11 +400,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3538056214659709918, guid: 2663336e8fad1b64b8bf56d4976ee9f3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7791787200183121228, guid: 2663336e8fad1b64b8bf56d4976ee9f3,
         type: 3}
       propertyPath: setId
@@ -478,7 +474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 7791787202184663587, guid: 2663336e8fad1b64b8bf56d4976ee9f3,
         type: 3}
       propertyPath: m_Name

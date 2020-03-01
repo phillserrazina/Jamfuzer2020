@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void Start() {
+        //FindObjectOfType<AudioManager>().Play("Game Theme");
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

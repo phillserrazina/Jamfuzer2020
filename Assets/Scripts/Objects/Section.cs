@@ -28,9 +28,12 @@ public class Section : MonoBehaviour
     private int lockedObject = -1;
     public LockCheck currentlyLockedObject = null;
 
+    private ProgressionManager progressionManager;
+
     // EXECUTION FUNCTIONS
 
     private void Start() {
+        progressionManager = FindObjectOfType<ProgressionManager>();
         otherSections = FindObjectsOfType<Section>().Where(s => s != this).ToArray();
         FindObjectOfType<Blink>().blinkEvent += OnBlink;
 
@@ -47,6 +50,8 @@ public class Section : MonoBehaviour
     }
 
     private void Update() {
+        if (progressionManager.locked) return;
+
         if (isVisible) unseen = false;
         if (!isVisible && !unseen) {
             ChangeSet();

@@ -10,7 +10,10 @@ public class LockCheck : MonoBehaviour
     public bool isLocked { get; private set; }
     public SubSet correctSet { get; private set; }
 
-    private Renderer myRenderer;
+    public Renderer myRenderer { get; private set; }
+
+    private Color32 myPurple = new Color32(52, 0, 54, 255);
+    private Color32 myOrange = new Color32(173, 81, 0, 255);
 
     public void Initialize(SubSet set) { 
         isLocked = false;
@@ -27,7 +30,7 @@ public class LockCheck : MonoBehaviour
         else mySection.UnlockObject();
 
         mySet.ownsLockedObject = isLocked;
-        myRenderer.material.color = isLocked ? Color.red : Color.white;
+        myRenderer.material.SetColor("_OutlineColor", isLocked ? myOrange : myPurple);
     }
 
     public void Switch(LockCheck other) {
@@ -49,7 +52,7 @@ public class LockCheck : MonoBehaviour
 
     public void Reset() {
         isLocked = false;
-        myRenderer.material.color = Color.white;
+        myRenderer.material.SetColor("_OutlineColor", myPurple);
         gameObject.SetActive(false);
     }
 }
