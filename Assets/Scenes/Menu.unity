@@ -648,7 +648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &219816376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &378203151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &738723183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &991184910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,7 +3376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &1315490789
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,6 +3464,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Click 1
     clip: {fileID: 8300000, guid: 3dc1c0884204f014197aca5028842158, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Hatch
+    clip: {fileID: 8300000, guid: 03df658d3bbef3146a34e404ac0249c5, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
@@ -3807,7 +3811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &1448679508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSelectSound: Click
-  onPressSound: 
 --- !u!1 &2004017629
 GameObject:
   m_ObjectHideFlags: 0

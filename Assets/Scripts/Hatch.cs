@@ -17,6 +17,7 @@ public class Hatch : MonoBehaviour
     [Button]
     public void Unlock()
     {
+        FindObjectOfType<AudioManager>().Play("Hatch");
         currentCoroutine = StartCoroutine(Move());
     }
 
