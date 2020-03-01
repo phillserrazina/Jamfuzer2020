@@ -39,6 +39,10 @@ public class MenuController : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        var am = FindObjectOfType<AudioManager>();
+        am?.StopAllSound();
+        am?.Play("Menu Theme");
     }
 
     public void SetResolution(int resIndex)
@@ -55,6 +59,7 @@ public class MenuController : MonoBehaviour
     {
         camAnim.SetTrigger("BlinkNoEvent");
         yield return new WaitForSeconds(0.4f);
+        FindObjectOfType<AudioManager>()?.Play("Blink");
         SceneManager.LoadScene(1);
 
     }

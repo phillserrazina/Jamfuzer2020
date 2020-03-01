@@ -908,6 +908,7 @@ MonoBehaviour:
   mouseSensitivityY: 3
   mouseSensitivityX: 4
   movementSpeed: 5
+  stepTimer: 0.4
 --- !u!136 &1011389789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1907,6 +1908,7 @@ MonoBehaviour:
   - {fileID: 572472413}
   - {fileID: 1853212273}
   - {fileID: 182173101}
+  locked: 0
 --- !u!1001 &216054265528025188
 PrefabInstance:
   m_ObjectHideFlags: 0
