@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885eb1fe111275143849d6b8b4ae378c, type: 3}
+  m_Name: ObjectDescriptionSubs
+  m_EditorClassIdentifier: 
+  sequences:
+  - sentences:
+    - I see myself picking up the instrument and strumming on the strings, and yet
+      no sound seems to emanate.
+  - sentences:
+    - I stare at the computer for a few seconds before deciding to switch it on.
+      There is no power.
+    - Then I notice that there is no keyboard or mouse attached to it.
+    - Then I notice the power cord is unplugged. When I pick up the cord it turns
+      into a snake and slivers away.
+  - sentences:
+    - 'The wardrobe feels cold to touch, the mess around it reminds me of the last
+      time I had been here. '
+  - sentences:
+    - 'I can see a version of myself picking up the controller and switching on the
+      console. '
+    - 'I am greeted with a red screen and pressing the buttons only seems to change
+      the brightness. '
+  - sentences:
+    - 'The bear tells me a secret only I would know and falls back to sleep. '
+  - sentences:
+    - 'The colours make my eyes hurt. '
+  - sentences:
+    - "I try to sleep on the bottom bunk, but it feels as though it\u2019s melting."
+    - 'I climb the ladder to the top bed but no matter how far I climb I cannot reach
+      the top. '
+  - sentences:
+    - 'I look inside the castle and see soldiers patrolling its walls. One looks
+      up at me and shoots me in the eye. '
+    - 'I go blind for one second and the visions fade away. '
+  - sentences:
+    - 'I shrink to the size of a grape and walk inside the rocket ship. '
+    - 'We take off and I wait 12 months inside of it. '
+    - 'When we finally land, I step outside and find myself exactly where I was before. '
+  - sentences:
+    - 'I open the toy box and look inside. I see a reflection of myself as a child
+      who looks concerned for my sanity. '
+  - sentences:
+    - 'The horse nays and I jump on its back. We rock around the room until I feel
+      sick. I give the horse a sugar cube and continue with my existence. '
+  - sentences:
+    - 'I place the skateboard on the floor and try to ride it. '
+    - 'The wheels move on the spot as my feet stay stationary on the board. '
+  - sentences:
+    - Every time I leap into the drawers I fall out of another.
+  - sentences:
+    - 'I remember this chair! '
+    - 'When the chair was on the chair and the chair was on the chair and the chair
+      and the chair and the chair... '
+  - sentences:
+    - 'When I look at these posters, I can jump into the movie scenes for moments
+      at a time. '
+    - ". Eventually I end up in a gun fight and get shot in the leg except it doesn\u2019t
+      seem to hurt."
+    - 'The main bad guy walks up to me and tells me my life is about to end before
+      slipping away from my thoughts. '
+  - sentences:
+    - 'I stare hard at the movie cases on the rack which all have labels written
+      in a language I understand, but when I read the sentences I do not understand
+      anymore. '
+  - sentences:
+    - "When I try to go to sleep on this bed, I have a nightmare I can\u2019t escape,
+      an old hag sits at the end of the bed and creeps slowly towards me. "
+    - I jolt from my sleep in a state of fright to see a friendly face at my bedside.
+    - "\u201CWhat\u2019s wrong?\u201D They ask, \u201CI just had the worst nightmare\u201D
+      I say, \u201Cyou mean like this one?\u201D They reply. "
+  - sentences:
+    - "The object seems to distort itself into a person I haven\u2019t seen for a
+      very long time. "
+    - 'They wave at me before turning back and I cry except the tears seem to come
+      out of my mouth. '
+  - sentences:
+    - 'I pick up the darts and throw them at the board except they fly upwards in
+      the Z direction and do not come down. '
+  - sentences:
+    - 'This bed is big and comfortable to sleep on. '
+    - "I close my eyes but can\u2019t sleep due to the noisy party happening at the
+      end of the bed that I haven\u2019t been invited to. "
+  - sentences:
+    - "The chair looks like it\u2019s made of wood but is actually made from wooden
+      jelly."
+    - 'When I eat part of the chair it grows back immediately, and I roll on the
+      floor from stomach cramps for 100 years. '
+  - sentences:
+    - 'This plant is strange to me. It tells me through thought alone it will outlive
+      me and that I should expect whatever is to come. '
+  - sentences:
+    - All these books on the shelf but none of them interest me no matter how interested
+      I try to make myself.
+    - 'When I finally try to open one, I realise they are solid objects that cannot
+      be manipulated in this physical space. '
+  - sentences:
+    - When I twist the dials on the radio, my favourite song begins to play.
+    - 'I sing the words, but they all seem to come out in the wrong order. '
+    - 'The radio switches frequency to a broadcast about a radio making a broadcast. '
+  - sentences:
+    - 'Inside this wardrobe seems to be a theme park where none of the rides work
+      but I still have to pay. '
+    - 'When I show the park guards, I have no money, they throw me off the tallest
+      rollercoaster in the park. '
+    - When I hit the ground, I end up back here.
