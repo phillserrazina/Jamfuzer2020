@@ -13,11 +13,13 @@ public class SubtitlesManager : MonoBehaviour
     [Space]
     [SerializeField] SubtitlesContainer subtitles = null;
     [SerializeField] SubtitlesContainer desciptions = null;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text = null;
 
     IEnumerator currentCoroutine;
     Camera cam;
     [ReadOnly] List<int> playedDescriptions = new List<int>();
+
+    bool descriptionsUnlocked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,27 +32,30 @@ public class SubtitlesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (descriptionsUnlocked)
         {
-            SubtitlesObjectType sub = hit.transform.GetComponent<SubtitlesObjectType>();
-            if (sub != null)
+            var ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
             {
-                uiImage.sprite = interactSpr;
-                if (Input.GetButtonDown("Action"))
+                SubtitlesObjectType sub = hit.transform.GetComponent<SubtitlesObjectType>();
+                if (sub != null)
                 {
-                    if (!playedDescriptions.Contains((int)sub.myType))
+                    uiImage.sprite = interactSpr;
+                    if (Input.GetButtonDown("Action"))
                     {
-                        playedDescriptions.Add((int)sub.myType);
-                        StartCoroutine(PlayDescription((int)sub.myType));
+                        if (!playedDescriptions.Contains((int)sub.myType))
+                        {
+                            playedDescriptions.Add((int)sub.myType);
+                            StartCoroutine(PlayDescription((int)sub.myType));
+                        }
                     }
                 }
-            }
-            else
-            {
-                uiImage.sprite = defSpr;
+                else
+                {
+                    uiImage.sprite = defSpr;
+                }
             }
         }
     }
@@ -87,5 +92,17 @@ public class SubtitlesManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         //Restart random sentences
         StartCoroutine(currentCoroutine);
+    }
+
+    [Button]
+    public void UnlockDescriptions()
+    {
+        descriptionsUnlocked = true;
+    }
+
+    [Button]
+    public void LockDescriptions()
+    {
+        descriptionsUnlocked = false;
     }
 }
