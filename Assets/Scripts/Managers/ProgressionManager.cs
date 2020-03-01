@@ -19,13 +19,17 @@ public class ProgressionManager : MonoBehaviour
     private void Update() {
         if (LevelIsDone() && !openedHatch) {
             openedHatch = true;
-            FindObjectOfType<Hatch>().Unlock();
+            Invoke("UnlockHatch", 4);
             locked = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Z)) {
             NextMemory();
         }
+    }
+
+    private void UnlockHatch() {
+        FindObjectOfType<Hatch>().Unlock();
     }
 
     // USE THIS TO GO TO THE NEXT LEVEL
