@@ -14,8 +14,12 @@ public class SubSet : MonoBehaviour
         if (CheckIfAllItemsAreCorrect()) {
             GetComponentInParent<Section>().done = true;
             foreach (var lc in myLockObjects) {
-                lc.GetComponent<Renderer>().material.color = Color.green;
+                lc.myRenderer.material.SetColor("_OutlineColor", Color.green);
             }
+            Debug.Log(transform.parent.gameObject.name + " Done");
+        }
+        else {
+            GetComponentInParent<Section>().done = false;
         }
     }
 
@@ -30,8 +34,13 @@ public class SubSet : MonoBehaviour
     public void Load(int lockedObject=-1) {
         for (int i = 0; i < myLockObjects.Length; i++) {
             myLockObjects[i].gameObject.SetActive(i != lockedObject);
-            if (i == lockedObject && ownsLockedObject)
+            myLockObjects[i].myRenderer.material.SetFloat("_Outline", 0f);
+            myLockObjects[i].myRenderer.material.SetColor("_OutlineColor", new Color32(52, 0, 54, 255));
+            if (i == lockedObject && ownsLockedObject) {
                 myLockObjects[i].gameObject.SetActive(true);
+                myLockObjects[i].myRenderer.material.SetFloat("_Outline", 1.1f);
+                myLockObjects[i].myRenderer.material.SetColor("_OutlineColor", new Color32(173, 81, 0, 255));
+            }
         }
     }
 

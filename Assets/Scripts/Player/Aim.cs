@@ -6,9 +6,17 @@ public class Aim : MonoBehaviour
     [SerializeField] private Text actionTextObject = null;
     private Transform selected;
 
+    private ProgressionManager progressionManager;
+
+    private void Start() {
+        progressionManager = FindObjectOfType<ProgressionManager>();
+    }
+
     private void Update() {
+        if (progressionManager.locked) return;
+        
         if (selected != null) {
-            selected.GetComponent<Renderer>().material.color = selected.GetComponent<LockCheck>().isLocked ? Color.red : Color.white;
+            selected.GetComponent<Renderer>().material.SetFloat("_Outline", selected.GetComponent<LockCheck>().isLocked ? 1.1f : 0f);
             selected = null;
             actionTextObject.gameObject.SetActive(false);
         }
@@ -20,9 +28,10 @@ public class Aim : MonoBehaviour
             var selection = hit.transform;
             var lc = selection.GetComponent<LockCheck>();
             if (lc == null) return;
+            
             actionTextObject.text = lc.isLocked ? "Unlock" : "Lock";
 
-            selection.GetComponent<Renderer>().material.color = lc.isLocked ? Color.red : Color.yellow;
+            selection.GetComponent<Renderer>().material.SetFloat("_Outline", 1.1f);
             actionTextObject.gameObject.SetActive(true);
             selected = selection;
         }
