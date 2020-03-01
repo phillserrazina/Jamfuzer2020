@@ -10,20 +10,19 @@ public class SubSet : MonoBehaviour
 
     public bool ownsLockedObject;
 
+    private Section mySection;
+
     private void Update() {
         if (CheckIfAllItemsAreCorrect()) {
-            GetComponentInParent<Section>().done = true;
+            mySection.done = true;
             foreach (var lc in myLockObjects) {
                 lc.myRenderer.material.SetColor("_OutlineColor", Color.green);
             }
-            Debug.Log(transform.parent.gameObject.name + " Done");
-        }
-        else {
-            GetComponentInParent<Section>().done = false;
         }
     }
 
     public void Initialize() {
+        mySection = GetComponentInParent<Section>();
         myLockObjects = new LockCheck[myObjects.Length];
         for (int i = 0; i < myObjects.Length; i++) {
             myLockObjects[i] = myObjects[i].GetComponent<LockCheck>();
@@ -45,6 +44,7 @@ public class SubSet : MonoBehaviour
     }
 
     public void Unload() {
+        mySection.done = false;
         foreach (var obj in myLockObjects) {
             obj.gameObject.SetActive(obj.isLocked);
         }
