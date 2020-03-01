@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Leap : MonoBehaviour
 {
@@ -43,7 +43,13 @@ public class Leap : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         _playerMovement.enabled = false;
         _player.position = _LeapTo.position;
-        FindObjectOfType<ProgressionManager>().NextMemory();
+
+        var pManager = FindObjectOfType<ProgressionManager>();
+        if (MemRefTracker.currentMemRef < pManager.memoryReferences.Length)
+            pManager.NextMemory();
+        else
+            SceneManager.LoadScene(2);
+            
         FindObjectOfType<SubtitlesManager>().LockDescriptions();
 
         yield return new WaitForSeconds(_enableMovementDelayTime);
