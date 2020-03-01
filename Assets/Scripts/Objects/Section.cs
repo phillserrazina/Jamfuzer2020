@@ -120,6 +120,7 @@ public class Section : MonoBehaviour
 
     public void Reset() {
         done = false;
+        inPosition = false;
         Scramble();
 
         currentlyActiveSet.Unload();
