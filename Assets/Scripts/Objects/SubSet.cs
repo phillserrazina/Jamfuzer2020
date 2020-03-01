@@ -10,14 +10,15 @@ public class SubSet : MonoBehaviour
 
     public bool ownsLockedObject;
 
-    private Section mySection;
+    public Section mySection { get; private set; }
 
     private void Update() {
         if (CheckIfAllItemsAreCorrect()) {
             mySection.done = true;
-            foreach (var lc in myLockObjects) {
-                lc.myRenderer.material.SetColor("_OutlineColor", Color.green);
-            }
+        }
+
+        if (CheckIfAllItemsAreInPosition()) {
+            mySection.inPosition = true;
         }
     }
 
@@ -54,6 +55,16 @@ public class SubSet : MonoBehaviour
         SubSet correct = myLockObjects[0].correctSet;
         foreach (var item in myLockObjects) {
             if (item.gameObject.activeSelf == false) return false;
+            if (item.correctSet != correct) return false;
+        }
+
+        if (correct.correctSet) return true;
+        else return false;
+    }
+
+    public bool CheckIfAllItemsAreInPosition() {
+        SubSet correct = myLockObjects[0].correctSet;
+        foreach (var item in myLockObjects) {
             if (item.correctSet != correct) return false;
         }
 

@@ -11,6 +11,7 @@ public class Section : MonoBehaviour
     private SubSet currentlyActiveSet = null;
 
     public bool done = false;
+    public bool inPosition = false;
 
     public bool debug;
 
@@ -62,6 +63,7 @@ public class Section : MonoBehaviour
     // METHODS
 
     private void OnBlink() {
+        if (progressionManager.locked) return;
         if (!isVisible) return;
         ChangeSet();
     }
