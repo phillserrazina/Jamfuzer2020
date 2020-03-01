@@ -21,6 +21,7 @@ public enum ObjectType
     Action_Film_Posters,
     DVD_Racks,
     Messy_Bed,
+    Messy_Chest_of_Drawers,
     DartBoard,
     Double_Bed,
     Wooden_Chair,
