@@ -19,11 +19,17 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Camera playerCamera;
 
+    private AudioManager audioManager;
+    [SerializeField] private float stepTimer = 0.75f;
+    private float currentStepTimer;
+
     // EXECUTION METHODS
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
         playerCamera = GetComponentInChildren<Camera>();
+        audioManager = FindObjectOfType<AudioManager>();
+        currentStepTimer = 0f;
     }
 
     void Update () {
@@ -49,6 +55,21 @@ public class PlayerMovement : MonoBehaviour
     private void Move() {
         transform.Rotate(Vector3.up * mouseX);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        if (horDirection != 0 || verDirection != 0) {
+            if (currentStepTimer > 0) {
+                currentStepTimer -= Time.deltaTime;
+                goto Movement;
+            }
+            
+            currentStepTimer = stepTimer;
+            audioManager.Play("Step", 2);
+        }
+        else {
+            currentStepTimer = 0;
+        }
+
+        Movement:
 
         rb.MovePosition(transform.position + 
                         (transform.forward * verDirection * movementSpeed * Time.fixedDeltaTime) + 

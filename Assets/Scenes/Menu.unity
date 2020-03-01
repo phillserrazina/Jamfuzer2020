@@ -3345,7 +3345,52 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Menu Theme
+    clip: {fileID: 8300000, guid: 99178b70d59d9164788f2bb224473b40, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Blink
+    clip: {fileID: 8300000, guid: ac82a2d5f24c12a48a321305e328fd93, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Piece
+    clip: {fileID: 8300000, guid: c85fd3335fb62fe4c8d04651b8bce53e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Step 1
+    clip: {fileID: 8300000, guid: 92224adc7f80e95499e92568a5f1e821, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
+    source: {fileID: 0}
+  - name: Step 2
+    clip: {fileID: 8300000, guid: 69a7fe9ee1a537e4ebbbc8b1c55d1663, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 038d548291ed0c942a6a49516bb1d9d9, type: 2}
     source: {fileID: 0}
 --- !u!4 &1315490791
 Transform:

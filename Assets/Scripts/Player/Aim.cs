@@ -46,6 +46,7 @@ public class Aim : MonoBehaviour
         if (selected != null) {
             if (Input.GetButtonDown("Action")) {
                 selected.GetComponent<LockCheck>().TriggerLock();
+                FindObjectOfType<AudioManager>()?.Play("Piece");
             }
         }
     }
