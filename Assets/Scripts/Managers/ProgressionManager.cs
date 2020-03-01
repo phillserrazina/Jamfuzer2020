@@ -21,6 +21,7 @@ public class ProgressionManager : MonoBehaviour
             openedHatch = true;
             Invoke("UnlockHatch", 4);
             locked = true;
+            FindObjectOfType<SubtitlesManager>().UnlockDescriptions();
         }
 
         if (Input.GetKeyDown(KeyCode.Z)) {
