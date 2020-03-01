@@ -36,7 +36,7 @@ public class CameraEffects : MonoBehaviour
     }
 
     public void PlaySound(string sound) {
-        FindObjectOfType<AudioManager>().Play(sound);
+        FindObjectOfType<AudioManager>()?.Play(sound);
     }
 
     public void ActivatePauseGUI() {
