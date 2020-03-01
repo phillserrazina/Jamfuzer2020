@@ -43,6 +43,7 @@ public class Leap : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         _playerMovement.enabled = false;
         _player.position = _LeapTo.position;
+        FindObjectOfType<ProgressionManager>().NextMemory();
 
         yield return new WaitForSeconds(_enableMovementDelayTime);
         _playerMovement.enabled = true;

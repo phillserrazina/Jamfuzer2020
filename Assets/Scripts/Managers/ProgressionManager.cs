@@ -6,13 +6,24 @@ public class ProgressionManager : MonoBehaviour
     public MemoryReference[] memoryReferences;
 
     private Section[] sections;
+    private bool openedHatch = false;
+
+    public bool locked = false;
+
 
     private void Start() {
         sections = FindObjectsOfType<Section>();
+        SetCorrectSet(MemRefTracker.currentMemRef);
     }
 
     private void Update() {
-        if (LevelIsDone()) Debug.Log("OPEN HATCH");
+        if (LevelIsDone() && !openedHatch) {
+            Debug.Log("OPEN HATCH");
+            openedHatch = true;
+            FindObjectOfType<Hatch>().Unlock();
+            locked = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.Z)) {
             NextMemory();
         }
@@ -27,6 +38,8 @@ public class ProgressionManager : MonoBehaviour
         }
 
         SetCorrectSet(MemRefTracker.currentMemRef);
+        openedHatch = false;
+        locked = false;
     }
 
     public void SetCorrectSet(int index) {
@@ -44,7 +57,10 @@ public class ProgressionManager : MonoBehaviour
 
     private bool LevelIsDone() {
         foreach (var s in sections) {
-            if (!s.done) return false;
+            if (!s.done) {
+                Debug.Log("Missing " + s.gameObject.name);
+                return false;
+            }
         }
 
         return true;
