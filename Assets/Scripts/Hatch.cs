@@ -9,6 +9,8 @@ public class Hatch : MonoBehaviour
 
     Coroutine currentCoroutine;
 
+    [SerializeField] private AudioSource audioSource = null;
+
     private void Start()
     {
         defaultPos = transform.position;
@@ -17,6 +19,7 @@ public class Hatch : MonoBehaviour
     [Button]
     public void Unlock()
     {
+        audioSource.Play();
         currentCoroutine = StartCoroutine(Move());
     }
 

@@ -23,6 +23,13 @@ public class Aim : MonoBehaviour
         }
         
         if (selected != null) {
+            if (selected.GetComponent<LockCheck>().mySet.mySection.inPosition) {
+                actionTextObject.gameObject.SetActive(false);
+                selected.GetComponent<Renderer>().material.SetFloat("_Outline", 0f);
+                selected = null;
+                return;
+            }
+
             selected.GetComponent<Renderer>().material.SetFloat("_Outline", selected.GetComponent<LockCheck>().isLocked ? 1.1f : 0f);
             selected = null;
             actionTextObject.gameObject.SetActive(false);
@@ -35,6 +42,7 @@ public class Aim : MonoBehaviour
             var selection = hit.transform;
             var lc = selection.GetComponent<LockCheck>();
             if (lc == null) return;
+            if (lc.mySet.mySection.inPosition) return;
             
             actionTextObject.text = lc.isLocked ? "Unlock" : "Lock";
 
