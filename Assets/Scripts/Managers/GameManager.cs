@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        //FindObjectOfType<AudioManager>().Play("Game Theme");
+        FindObjectOfType<AudioManager>()?.Play("Game Theme");
     }
 
     private void Update() {
