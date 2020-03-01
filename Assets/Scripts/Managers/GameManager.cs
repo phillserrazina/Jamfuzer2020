@@ -13,10 +13,4 @@ public class GameManager : MonoBehaviour
         am?.StopAllSound();
         am?.Play("Game Theme");
     }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
 }
