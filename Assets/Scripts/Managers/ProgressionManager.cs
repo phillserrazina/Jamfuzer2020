@@ -17,6 +17,13 @@ public class ProgressionManager : MonoBehaviour
     }
 
     private void Update() {
+        if ((Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.H)) && !openedHatch) {
+            openedHatch = true;
+            UnlockHatch();
+            locked = true;
+            FindObjectOfType<SubtitlesManager>().UnlockDescriptions();
+        }
+
         if (LevelIsDone() && !openedHatch) {
             openedHatch = true;
             Invoke("UnlockHatch", 15);
