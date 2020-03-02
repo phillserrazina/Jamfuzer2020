@@ -6029,7 +6029,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e70d20c2a3b7a384f8e48881e770e9d9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e70d20c2a3b7a384f8e48881e770e9d9,
         type: 3}
@@ -6080,11 +6080,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: de3a7a27a42a9ae4ba7e72f193b53dec, type: 2}
+      objectReference: {fileID: 2100000, guid: 40292a1a21729d94c87d3f22fc10ea5d, type: 2}
     - target: {fileID: -927199367670048503, guid: e70d20c2a3b7a384f8e48881e770e9d9,
         type: 3}
       propertyPath: m_Name
       value: Teddy
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e70d20c2a3b7a384f8e48881e770e9d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d20c2a3b7a384f8e48881e770e9d9, type: 3}
@@ -7777,7 +7782,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f130a45dc3fb31144a3dc898357f1640,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f130a45dc3fb31144a3dc898357f1640,
         type: 3}
@@ -7813,7 +7818,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f77864cb248465c468f7f887348488dc, type: 2}
+      objectReference: {fileID: 2100000, guid: 64b0bd5b49cfa204980ed32977573931, type: 2}
     - target: {fileID: -1504981713932161579, guid: f130a45dc3fb31144a3dc898357f1640,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -7833,11 +7838,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 2100000, guid: 1747d42c709c4604a8c28d4ff6626cfc, type: 2}
+      objectReference: {fileID: 2100000, guid: a2b07d2d25d2cde42819d4225dcffdf8, type: 2}
     - target: {fileID: -927199367670048503, guid: f130a45dc3fb31144a3dc898357f1640,
         type: 3}
       propertyPath: m_Name
       value: Guitar
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f130a45dc3fb31144a3dc898357f1640,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f130a45dc3fb31144a3dc898357f1640, type: 3}
@@ -8320,12 +8330,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f86374a795184a54785c5e8dd1dcdad6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.117
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f86374a795184a54785c5e8dd1dcdad6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.339
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f86374a795184a54785c5e8dd1dcdad6,
         type: 3}
