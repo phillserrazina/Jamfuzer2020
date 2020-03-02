@@ -17,7 +17,6 @@ public class SubtitlesManager : MonoBehaviour
 
     IEnumerator currentCoroutine;
     Camera cam;
-    [ReadOnly] List<int> playedDescriptions = new List<int>();
 
     bool descriptionsUnlocked = false;
     // Start is called before the first frame update
@@ -45,11 +44,7 @@ public class SubtitlesManager : MonoBehaviour
                     uiImage.sprite = interactSpr;
                     if (Input.GetButtonDown("Action"))
                     {
-                        if (!playedDescriptions.Contains((int)sub.myType))
-                        {
-                            playedDescriptions.Add((int)sub.myType);
-                            StartCoroutine(PlayDescription((int)sub.myType));
-                        }
+                        StartCoroutine(PlayDescription((int)sub.myType));
                     }
                 }
                 else
@@ -102,6 +97,7 @@ public class SubtitlesManager : MonoBehaviour
     [Button]
     public void LockDescriptions()
     {
+        uiImage.sprite = defSpr;
         descriptionsUnlocked = false;
     }
 }
