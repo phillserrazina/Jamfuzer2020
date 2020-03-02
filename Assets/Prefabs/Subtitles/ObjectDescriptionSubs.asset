@@ -116,8 +116,8 @@ MonoBehaviour:
       rollercoaster in the park. '
     - When I hit the ground, I end up back here.
   - sentences:
-    - 'I sit down at the checkers table and an entity appears on the other side.
-      They claim to be a grand champion and we play 74 games in a row. '
+    - I sit down at the checkers table and an entity appears on the other side.
+    - They claim to be a grand champion and we play 74 games in a row.
     - I win every game, each time the entity becomes more bewildered and stressed
       and always asks for another round.
   - sentences:
@@ -134,8 +134,8 @@ MonoBehaviour:
   - sentences:
     - "This door is painted on\u2026"
   - sentences:
-    - 'I swipe the toys from the windowsill and attempt to climb out but as I do,
-      I become really small and can no longer reach high enough. '
+    - I swipe the toys from the windowsill and attempt to climb out
+    - 'but as I do, I become really small and can no longer reach high enough. '
   - sentences:
     - "The blinds cannot be opened. I don\u2019t know if they ever have been."
   - sentences:
