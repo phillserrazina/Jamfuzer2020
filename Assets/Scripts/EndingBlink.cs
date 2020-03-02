@@ -6,6 +6,7 @@ public class EndingBlink : MonoBehaviour
 {
     public GameObject[] stages;
     [SerializeField] GameObject _obstacles = null;
+    [SerializeField] GameObject neatObstacles = null;
     [SerializeField] Hatch _hatch = null;
     [SerializeField] private Transform teleportPoint = null;
     int stage = 0;
@@ -26,6 +27,7 @@ public class EndingBlink : MonoBehaviour
         if(stage == 0)
         {
             _obstacles.SetActive(false);
+            neatObstacles.SetActive(true);
             _hatch.Unlock();
         }
         else if(stage == 1)

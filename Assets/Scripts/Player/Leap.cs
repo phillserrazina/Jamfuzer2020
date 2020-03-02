@@ -13,6 +13,17 @@ public class Leap : MonoBehaviour
     PlayerMovement _playerMovement = null;
     Hatch _hatch = null;
 
+    private void Start() {
+        if (_camEf == null)
+            _camEf = FindObjectOfType<CameraEffects>();
+        if (_player == null)
+            _player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (_playerMovement == null)
+            _playerMovement = _player.GetComponent<PlayerMovement>();
+        if (_hatch == null)
+            _hatch = FindObjectOfType<Hatch>();
+    }
+
     private void OnValidate()
     {
         if (_camEf == null)
@@ -27,7 +38,7 @@ public class Leap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<PlayerMovement>() != null)
         {
             _camEf.Blink();
 
