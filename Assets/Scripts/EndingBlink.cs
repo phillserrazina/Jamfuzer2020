@@ -7,7 +7,7 @@ public class EndingBlink : MonoBehaviour
     public GameObject[] stages;
     [SerializeField] GameObject _obstacles = null;
     [SerializeField] Hatch _hatch = null;
-    [SerializeField] private Transform teleportPoint;
+    [SerializeField] private Transform teleportPoint = null;
     int stage = 0;
     // Start is called before the first frame update
     void Start()
