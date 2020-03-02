@@ -16,6 +16,7 @@ public class SubtitlesManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI text = null;
 
     IEnumerator currentCoroutine;
+    IEnumerator currentDescCor;
     Camera cam;
 
     bool descriptionsUnlocked = false;
@@ -44,7 +45,12 @@ public class SubtitlesManager : MonoBehaviour
                     uiImage.sprite = interactSpr;
                     if (Input.GetButtonDown("Action"))
                     {
-                        StartCoroutine(PlayDescription((int)sub.myType));
+                        if (currentDescCor != null)
+                        {
+                            StopCoroutine(currentDescCor);
+                        }
+                        currentDescCor = PlayDescription((int)sub.myType);
+                        StartCoroutine(currentDescCor);
                     }
                 }
                 else
