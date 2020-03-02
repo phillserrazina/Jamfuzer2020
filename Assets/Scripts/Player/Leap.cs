@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Leap : MonoBehaviour
 {
+    public bool ending;
     [SerializeField] Transform _LeapTo = null;
     [SerializeField] float _enableMovementDelayTime = 1.2f;
 
@@ -44,13 +45,18 @@ public class Leap : MonoBehaviour
         _playerMovement.enabled = false;
         _player.position = _LeapTo.position;
 
-        var pManager = FindObjectOfType<ProgressionManager>();
-        if (MemRefTracker.currentMemRef < pManager.memoryReferences.Length)
-            pManager.NextMemory();
-        else
-            SceneManager.LoadScene(2);
-            
-        FindObjectOfType<SubtitlesManager>().LockDescriptions();
+        if (!ending) {
+            var pManager = FindObjectOfType<ProgressionManager>();
+            if (MemRefTracker.currentMemRef < pManager.memoryReferences.Length)
+                pManager.NextMemory();
+            else
+                SceneManager.LoadScene(2);
+                
+            FindObjectOfType<SubtitlesManager>().LockDescriptions();
+        }
+        else {
+            FindObjectOfType<EndingBlink>().IncreaseStage();
+        }
 
         yield return new WaitForSeconds(_enableMovementDelayTime);
         _playerMovement.enabled = true;
