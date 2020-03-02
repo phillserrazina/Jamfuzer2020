@@ -47,7 +47,7 @@ public class Leap : MonoBehaviour
 
         if (!ending) {
             var pManager = FindObjectOfType<ProgressionManager>();
-            if (MemRefTracker.currentMemRef < pManager.memoryReferences.Length)
+            if (MemRefTracker.currentMemRef < pManager.memoryReferences.Length-1)
                 pManager.NextMemory();
             else
                 SceneManager.LoadScene(2);
