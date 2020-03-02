@@ -19,7 +19,7 @@ public class ProgressionManager : MonoBehaviour
     private void Update() {
         if (LevelIsDone() && !openedHatch) {
             openedHatch = true;
-            Invoke("UnlockHatch", 4);
+            Invoke("UnlockHatch", 15);
             locked = true;
             FindObjectOfType<SubtitlesManager>().UnlockDescriptions();
         }
