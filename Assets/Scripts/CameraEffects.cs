@@ -5,9 +5,11 @@ using NaughtyAttributes;
 
 public class CameraEffects : MonoBehaviour
 {
-    [SerializeField] private Animator blinkAnim = null;
+    public Animator blinkAnim = null;
 
     private Blink myBlink;
+
+    [SerializeField] private GameObject pauseGui = null;
 
     private void Start() {
         myBlink = FindObjectOfType<Blink>();
@@ -34,6 +36,10 @@ public class CameraEffects : MonoBehaviour
     }
 
     public void PlaySound(string sound) {
-        FindObjectOfType<AudioManager>().Play(sound);
+        FindObjectOfType<AudioManager>()?.Play(sound);
+    }
+
+    public void ActivatePauseGUI() {
+        pauseGui.SetActive(true);
     }
 }

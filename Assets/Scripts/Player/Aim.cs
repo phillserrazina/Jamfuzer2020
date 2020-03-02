@@ -7,13 +7,15 @@ public class Aim : MonoBehaviour
     private Transform selected;
 
     private ProgressionManager progressionManager;
+    private GameManager gameManager;
 
     private void Start() {
         progressionManager = FindObjectOfType<ProgressionManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update() {
-        if (progressionManager.locked) {
+        if (progressionManager.locked || gameManager.paused) {
             actionTextObject.gameObject.SetActive(false);
             if (selected != null) {
                 selected.GetComponent<Renderer>().material.SetFloat("_Outline", 0f);

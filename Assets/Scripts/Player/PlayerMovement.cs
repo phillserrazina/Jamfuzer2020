@@ -23,16 +23,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stepTimer = 0.75f;
     private float currentStepTimer;
 
+    private GameManager gameManager;
+
     // EXECUTION METHODS
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
         playerCamera = GetComponentInChildren<Camera>();
         audioManager = FindObjectOfType<AudioManager>();
+        gameManager = FindObjectOfType<GameManager>();
         currentStepTimer = 0f;
     }
 
     void Update () {
+        if (gameManager.paused) return;
+        
         GetInput();
     }
 
@@ -63,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
             currentStepTimer = stepTimer;
-            audioManager.Play("Step", 2);
+            audioManager?.Play("Step", 2);
         }
         else {
             currentStepTimer = 0;

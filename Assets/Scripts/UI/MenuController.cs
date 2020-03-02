@@ -17,6 +17,8 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 

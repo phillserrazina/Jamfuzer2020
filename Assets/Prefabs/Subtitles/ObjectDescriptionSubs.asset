@@ -41,7 +41,7 @@ MonoBehaviour:
   - sentences:
     - 'I look inside the castle and see soldiers patrolling its walls. One looks
       up at me and shoots me in the eye. '
-    - 'I go blind for one second and the visions fade away. '
+    - 'I go blind for a second and the visions fade away. '
   - sentences:
     - 'I shrink to the size of a grape and walk inside the rocket ship. '
     - 'We take off and I wait 12 months inside of it. '
@@ -50,8 +50,10 @@ MonoBehaviour:
     - 'I open the toy box and look inside. I see a reflection of myself as a child
       who looks concerned for my sanity. '
   - sentences:
-    - 'The horse nays and I jump on its back. We rock around the room until I feel
-      sick. I give the horse a sugar cube and continue with my existence. '
+    - This rocking horse looks awful, maybe it was made by hand. The horse nays and
+      I jump on its back.
+    - 'We rock around the room until I feel sick. I give the horse a sugar cube and
+      continue with my existence. '
   - sentences:
     - 'I place the skateboard on the floor and try to ride it. '
     - 'The wheels move on the spot as my feet stay stationary on the board. '
@@ -62,9 +64,9 @@ MonoBehaviour:
     - 'When the chair was on the chair and the chair was on the chair and the chair
       and the chair and the chair... '
   - sentences:
-    - 'When I look at these posters, I can jump into the movie scenes for moments
-      at a time. '
-    - ". Eventually I end up in a gun fight and get shot in the leg except it doesn\u2019t
+    - 'When I look at this poster, I can jump into the movie scenes for moments at
+      a time. '
+    - "Eventually I end up in a gun fight and get shot in the leg except it doesn\u2019t
       seem to hurt."
     - 'The main bad guy walks up to me and tells me my life is about to end before
       slipping away from my thoughts. '
@@ -113,3 +115,36 @@ MonoBehaviour:
     - 'When I show the park guards, I have no money, they throw me off the tallest
       rollercoaster in the park. '
     - When I hit the ground, I end up back here.
+  - sentences:
+    - 'I sit down at the checkers table and an entity appears on the other side.
+      They claim to be a grand champion and we play 74 games in a row. '
+    - I win every game, each time the entity becomes more bewildered and stressed
+      and always asks for another round.
+  - sentences:
+    - "I walk up to the lamp and pull the chord with my mind\u2019s eye."
+    - 'The lightbulb disappears from inside the shade and appears above my head. '
+    - Every good idea I have ever had comes to life so vividly in front of me. None
+      of them seem to manifest in this reality.
+  - sentences:
+    - 'I twist the handle on the door and it turns into slime, I cannot get out. '
+  - sentences:
+    - I open the door and step through into the darkness outside. There is nothing,
+      just the outside walls of the room.
+    - Somehow, I actually feel safer inside than out.
+  - sentences:
+    - "This door is painted on\u2026"
+  - sentences:
+    - 'I swipe the toys from the windowsill and attempt to climb out but as I do,
+      I become really small and can no longer reach high enough. '
+  - sentences:
+    - "The blinds cannot be opened. I don\u2019t know if they ever have been."
+  - sentences:
+    - "It\u2019s raining outside, except the rain is not moving."
+    - 'Suddenly the rain forms into a giant water mass and splats against the window
+      making it impossible to see out of. '
+  - sentences:
+    - "These look like they were drawn by a child, but I know that they weren\u2019t."
+  - sentences:
+    - Every drawer seems to contain melted butter. I refuse to eat it even if I could.
+  - sentences:
+    - "Is it really art if it doesn\u2019t really exist?"
